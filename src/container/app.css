@@ -1,0 +1,20 @@
+.header, .body {
+    background-color: #fff;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+
+.profile {
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.profile .avatar-icon {
+    font-size: 25px;
+}
+
+.profile span {
+    vertical-align: super;
+    margin-left: 10px;
+}

@@ -1,0 +1,12 @@
+.login-container {
+    max-width: 500px;
+    margin: 100px auto;
+}
+
+.login-container .register-button {
+    margin-left: 20px;
+}
+
+.login-container .required, .login-container .error {
+    color: red;
+}
