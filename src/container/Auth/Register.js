@@ -38,25 +38,29 @@ class Register extends Component {
 
     handleFirstNameChange(e) {
         this.setState({
-            firstName: e.target.value
+            firstName: e.target.value,
+            isErrorLogin: false,
         })
     }
 
     handleLastNameChange(e) {
         this.setState({
-            lastName: e.target.value
+            lastName: e.target.value,
+            isErrorLogin: false,
         })
     }
 
     handleEmailChange(e) {
         this.setState({
             email: e.target.value,
+            isErrorLogin: false,
         })
     }
 
     handlePasswordChange(e) {
         this.setState({
             password: e.target.value,
+            isErrorLogin: false,
         })
     }
 

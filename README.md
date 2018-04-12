@@ -2,6 +2,8 @@
 
 - [Running the app](#running-the-app)
 - [Project structure](#project-structure)
+- [Example Account](#example-account)
+- [Visit my App on gitlab](#visit-my-app-on-gitlab)
 
 ## Running the app
 
@@ -43,3 +45,19 @@ my-app/
 ```
 
 If you don't understand Validation and ValidCase, it's ok. It's just my idea.
+
+## Example Account
+
+User: test@mailinator.com
+
+Password: 123456789
+
+## Visit my App on gitlab
+
+You can visit my app on this address:
+
+`http://linh273.gitlab.io/nova`
+
+Note*: This gitlab server is free. So, `don't refresh page`, cause get 404 error.
+
+Run app on local is the best way.

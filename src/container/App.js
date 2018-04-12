@@ -30,16 +30,14 @@ class App extends Component {
     componentDidMount() {
         //Not normal thing to do here
         //Because getUserProfile get user from localstorage, not api
-        if(!this.props.user) {
+        if(!this.props.user || _.isEmpty(this.props.user)) {
             let user = localStorage.getItem('user');
-            if(user) {
-                this.props.userActions.getUserProfile();
-            } else {
-                localStorage.removeItem('user');
-                localStorage.removeItem('tokens');
+            if(!user) {
+                this.props.userActions.logOut();
                 this.props.history.push('/login');
             }
-        } 
+            this.props.userActions.getUserProfile();
+        }
     }
 
     handleLogout() {

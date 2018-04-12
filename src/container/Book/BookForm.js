@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import ProTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {
     Button,
     Modal,
@@ -274,15 +274,20 @@ class BookForm extends Component {
 
 BookForm.propTypes = {
     //show or hide Modal
-    isShow: ProTypes.bool,
+    isShow: PropTypes.bool,
     //when hit close it call function from father to notice close modal
-    closeCallBack: ProTypes.func,
+    closeCallBack: PropTypes.func,
     //after passing when submit, call function from father to call Api
-    saveCallBack: ProTypes.func,
+    saveCallBack: PropTypes.func,
     //devide ADD, EDIT, VIEW
-    action: ProTypes.string,
+    action: PropTypes.string,
     //selected book(EDIT, VIEW), null(ADD)
-    book: ProTypes.object,
+    book: PropTypes.shape({
+        id: PropTypes.number,
+        author: PropTypes.string,
+        description: PropTypes.string,
+        title: PropTypes.string,
+    }),
 }
 
 BookForm.defaultProps = {

@@ -1,6 +1,7 @@
 import "isomorphic-fetch";
+import { logOut } from './../actions/userActions';
 const uuidv4 = require('uuid/v4');
-export const serverBase = 'http://bm-fe.herokuapp.com/'
+const serverBase = 'http://bm-fe.herokuapp.com/'
 
 export function callApi(
     url,
@@ -30,6 +31,12 @@ export function callApi(
             dispatch(request);
         }
         return fetch(serverBase+url, config).then(response => {
+            if(response.status === 401) {
+                dispatch(logOut());
+                setTimeout(() => {
+                    window.location.reload();
+                }, 3000)
+            }
             if(response.headers.get('Access-Token') && response.headers.get('Client') && response.headers.get('Uid')) {
                 setTokens(response.headers.get('Access-Token'), response.headers.get('Client'), response.headers.get('Uid'));
             }
@@ -39,8 +46,7 @@ export function callApi(
                 if(onRequestFail) {
                     dispatch(onRequestFail(data.errors));
                 }
-            }
-            if(onRequrestSuccess) {
+            } else if(onRequrestSuccess) {
                 dispatch(onRequrestSuccess(data));
             }
             return data;

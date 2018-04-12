@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { HelpBlock } from 'react-bootstrap';
 
 export default class Validator extends Component {
@@ -49,15 +49,20 @@ export default class Validator extends Component {
 
 Validator.propTypes = {
     //enable validation
-    enabled: ProTypes.bool,
+    enabled: PropTypes.bool,
     //string come from child ValidCase 
-    id: ProTypes.string,
+    id: PropTypes.string,
     //callBack function to build valid object
-    callBack: ProTypes.func,
+    callBack: PropTypes.func,
     //className
-    styleClass: ProTypes.string,
+    styleClass: PropTypes.string,
     //show multi message or just single message errors
-    isMultiShow: ProTypes.bool,
+    isMultiShow: PropTypes.bool,
+    //children element ValidCase
+    children: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.array,
+    ]),
 }
 
 Validator.defaultProps = {

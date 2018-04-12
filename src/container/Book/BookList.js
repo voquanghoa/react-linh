@@ -33,7 +33,10 @@ class BookList extends Component {
     }
 
     componentDidMount() {
-        this.loadBookList();
+        let user = localStorage.getItem('user');
+        if(user) {
+            this.loadBookList();
+        }
     }
 
     handleAction(e, book, action) {
@@ -97,11 +100,7 @@ class BookList extends Component {
     }
 
     loadBookList() {
-        this.props.bookActions.getBookList().then(data => {
-            if(data.errors) {
-                NotificationManager.success(data.errors[0], 'Load book list');
-            }
-        })
+        this.props.bookActions.getBookList();
     }
 
     handleOpenConfirmForm(e, book) {
@@ -115,6 +114,7 @@ class BookList extends Component {
     handleDeleteClick() {
         this.props.bookActions.deleteBook(this.state.selectedBook.id).then(response => {
             if(response.errors) {
+                NotificationManager.error(response.errors[0], 'Errors');
                 this.setState({
                     errorMessage: response.errors[0],
                 })
